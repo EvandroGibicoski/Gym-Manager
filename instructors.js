@@ -7,19 +7,32 @@ exports.show = function(req, res) {
     const foundInstructor = data.instructors.find(function(instructor) {
        return instructor.id == id;
     });
-    
         if(!foundInstructor)
             return res.send("Instructor not found!")
 
+        function age(timestamp) {
+            const today = new Date()
+            const birthDate = new Date(timestamp)
+
+        let age = today.getFullYear() - birthDate.getFullYear()
+
+        const month = today.getMonth() - birthDate.getMonth()
+            if(month < 0 || month == 0 && today.getDate() < birthDate.getDate()) {
+                age = age -1
+            }
+
+            return age
+
+        }
         const instructor = {
             ...foundInstructor,
-            age: "",
+            age: age(foundInstructor.birth),
             gender: "",
-            services: foundInstructor.services.split(""),
+            services: foundInstructor.services.split(","),
             created_at: ""
 
         }
-            return res.render("instructors/show", { instructor: foundInstructor })
+            return res.render("instructors/show", { instructor })
     
 }
 
