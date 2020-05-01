@@ -1,16 +1,37 @@
 const fs = require('fs');
 const data = require('./data.json');
 
-exports.post = function(req, res) {
-    if(req.body.name == "") {
-        const keys = Object.keys(req.body);
+exports.show = function(req, res) {
+    const { id } = req.params;
 
-        for(key of keys) {
-            if(req.body[key] == "") {
-                return res.send("Por favor, preencha todos os campos!")
-            }
+    const foundInstructor = data.instructors.find(function(instructor) {
+       return instructor.id == id;
+    });
+    
+        if(!foundInstructor)
+            return res.send("Instructor not found!")
+
+        const instructor = {
+            ...foundInstructor,
+            age: "",
+            gender: "",
+            services: "",
+            created_at: ""
+
+        }
+            return res.render("instructors/show", { instructor: foundInstructor })
+    
+}
+
+exports.post = function(req, res) {
+    const keys = Object.keys(req.body);
+
+    for(key of keys) {
+        if(req.body[key] == "") {
+            return res.send("please, fill the fields!")
         }
     }
+    
     let { avatar_url, name, birth, gender, service} = req.body;
 
     const created_at = Date.now();
@@ -36,14 +57,4 @@ exports.post = function(req, res) {
 
 };
 
-exports.show = function(req, res) {
-    const { id } = req.params;
 
-    const foundInstructor = data.instructors.find(function(instructor) {
-        return instructor.id == id;
-    });
-
-    if(!foundInstructor) 
-    return res.send("Instructor not found!")
-    return res.send(foundInstructor)
-};

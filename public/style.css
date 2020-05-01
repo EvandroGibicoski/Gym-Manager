@@ -129,13 +129,14 @@ input {
     font-weight: bold;
     font-size: 18px;
 }
-input[type="radio"] {
+input[type="radio"], input[type="date"] {
     width: initial;
     margin-right: 4px;
 }
 input::placeholder {
-    font-size: 16px;
+    font-size: 12px;
     font-weight: normal;
+    padding: 8px;
 }
 button[type="submit"] {
     padding: 8px 32px;

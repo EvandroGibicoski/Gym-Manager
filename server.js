@@ -7,7 +7,6 @@ const server = express();
 
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static('public'));
-server.use(express.static('assets'));
 server.use(routes);
 
 server.set("view engine", "njk");
@@ -18,6 +17,6 @@ nunjucks.configure("views", {
     noCache: true
 });
 
-server.listen(5000, function(req, res) {
+server.listen(3000, function(req, res) {
     console.log("server is running");
 })
