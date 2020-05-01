@@ -6,7 +6,7 @@
       "name": "Evandro Pereira Gibicoski",
       "birth": 1587772800000,
       "gender": "M",
-      "service": "Caramba",
+      "services": "Caramba",
       "created_at": 1587854238578
     },
     {
@@ -15,7 +15,7 @@
       "name": "Evandro Pereira Gibicoski",
       "birth": 1587600000000,
       "gender": "M",
-      "service": "Foi",
+      "services": "Foi",
       "created_at": 1588284649327
     },
     {
@@ -23,8 +23,8 @@
       "avatar_url": "https://google.com/danillogomes",
       "name": "Danillo Gomes",
       "birth": 1586822400000,
-      "gender": "M",
-      "service": "Musculação",
+      "gender": "F",
+      "services": "Musculação, Ginastica",
       "created_at": 1588284978319
     }
   ]
