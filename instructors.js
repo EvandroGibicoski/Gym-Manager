@@ -15,7 +15,7 @@ exports.show = function(req, res) {
             ...foundInstructor,
             age: "",
             gender: "",
-            services: "",
+            services: foundInstructor.services.split(""),
             created_at: ""
 
         }
@@ -45,7 +45,7 @@ exports.post = function(req, res) {
         name,
         birth,
         gender,
-        service,
+        services,
         created_at
     });
 
