@@ -12,5 +12,17 @@ module.exports = {
 
         return age
 
+    },
+    date: function(timestamp) {
+        // get date
+        const date = new Date(timestamp)
+        // get year
+        const year = date.getFullYear()
+        // get month 
+        const month = date.getFullYear() + 1
+        // get day
+        const day = date.getFullYear()
+
+        console.log(`${year}-${month}-${day}`)
     }
 }
