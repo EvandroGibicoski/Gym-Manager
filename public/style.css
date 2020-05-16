@@ -147,6 +147,7 @@ a.button {
     margin-top: 32px;
     width: 100%;
     font-size: 16px;
+    cursor: pointer;
 }
 a.button {
     display: block;
@@ -154,4 +155,8 @@ a.button {
     text-align: center;
     text-decoration: none;
     font-weight: bold;
+}
+#form-delete button[type="submit"] {
+    margin-top: 8px;
+    background-color: lightcoral;
 }
