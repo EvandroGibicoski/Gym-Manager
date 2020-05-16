@@ -1,15 +1,6 @@
 {
   "instructors": [
     {
-      "id": 1,
-      "avatar_url": "https://source.unsplash.com/collection/3465564/",
-      "name": "Evandro Pereira Gibicoski",
-      "birth": 1587772800000,
-      "gender": "M",
-      "services": "Caramba",
-      "created_at": 1587854238578
-    },
-    {
       "id": 2,
       "avatar_url": "https://github.com/settings/profile",
       "name": "Evandro Pereira Gibicoski",
@@ -34,15 +25,6 @@
       "birth": 496800000000,
       "gender": "M",
       "created_at": 1588364555042
-    },
-    {
-      "id": "5",
-      "avatar_url": "https://google.com/teste",
-      "name": "Evandro Pereira Gibicoski",
-      "birth": 1588723200000,
-      "gender": "M",
-      "services": "Matematica, historia",
-      "created_at": 1588364646883
     },
     {
       "id": 6,
