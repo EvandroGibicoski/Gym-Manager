@@ -97,7 +97,7 @@ exports.put = function(req, res) {
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
         if(err) 
-            return res.send("Write Error");
+            return res.send("Write file Error");
             return res.redirect(`/instructors/${id}`)
     })
 
