@@ -1,12 +1,12 @@
 {
   "instructors": [
     {
-      "id": 2,
+      "id": "2",
       "avatar_url": "https://github.com/settings/profile",
-      "name": "Evandro Pereira Gibicoski",
+      "name": "Evandro",
       "birth": 1587600000000,
       "gender": "M",
-      "services": "Foi",
+      "services": "Fisica, Matemática",
       "created_at": 1588284649327
     },
     {

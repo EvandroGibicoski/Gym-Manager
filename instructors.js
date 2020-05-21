@@ -93,15 +93,13 @@ exports.put = function(req, res) {
         birth: Date.parse(req.body.birth),
     }
 
-    data.instructors[index] = instructor
+    data.instructors[index] = instructor;
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
-        if(err) 
-            return res.send("Write file Error");
+        if(err) return res.send("Write file Error");
+
             return res.redirect(`/instructors/${id}`)
     })
-
-    
 }
 
 exports.delete = function(req, res) {
@@ -112,6 +110,7 @@ exports.delete = function(req, res) {
     }) 
 
     data.instructors = filteredInstructors
+    
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
         if(err) 
             return res.send("Write file error!")
