@@ -1,15 +1,6 @@
 {
   "instructors": [
     {
-      "id": 1,
-      "avatar_url": "https://images.unsplash.com/photo-1563053764-85dbf278c408?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
-      "name": "Danillo Gomes",
-      "birth": 1586822400000,
-      "gender": "M",
-      "services": "Musculação, Ginastica",
-      "created_at": 1588284978319
-    },
-    {
       "id": 2,
       "avatar_url": "https://images.unsplash.com/photo-1548690312-e3b507d8c110?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
       "name": "Larissa Gomes",
@@ -36,5 +27,7 @@
       "services": "Musculação",
       "created_at": 1590113015644
     }
+  ]
+}    
   ]
 }

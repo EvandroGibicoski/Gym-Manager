@@ -22,20 +22,29 @@ body {
 header {
     background-color: white;
     width: 100%;
-    padding: 32px;
+    padding: 16px;
     text-align: center;
     box-sizing: border-box;
 }
 .links {
     font-size: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+}
+.links img {
+    display: flex;
+    margin-right: 10vh;
 }
 .links a + a {
-    margin-left: 32px;  
+    margin-left: 10vh;  
 }
 .links a {
     text-decoration: none;
     color: #777;
     position: relative;
+
 }
 .links a.active {
     font-weight: bold;
