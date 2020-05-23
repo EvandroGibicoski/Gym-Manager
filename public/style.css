@@ -3,7 +3,7 @@
 
 :root {
     --color-rocket: #7159c1;
-    --color-yellow: #f7df1e;
+    --color-MediumSeaGreen: #3CB371;
 }
 
 * {
@@ -118,7 +118,7 @@ header {
 }
 .details .item div:nth-child(2) span {
     padding: 8px 16px;
-    background-color: var(--color-yellow);
+    background-color: var(--color-MediumSeaGreen);
     border-radius: 16px;
     color: #777;
     margin-right: 4px;
@@ -167,7 +167,7 @@ a.button {
 }
 #form-delete button[type="submit"] {
     margin-top: 8px;
-    background-color: lightcoral;
+    background-color: #FF6347;
 }
 
 /* INDEX INSTRUCTORS */

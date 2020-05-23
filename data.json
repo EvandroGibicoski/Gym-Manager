@@ -6,7 +6,7 @@
       "name": "Larissa Gomes",
       "birth": 643334400000,
       "gender": "F",
-      "services": "Musculação",
+      "services": "Musculação, Ginástica",
       "created_at": 1590108793002
     },
     {
@@ -24,8 +24,8 @@
       "name": "Beto Souza",
       "birth": 477705600000,
       "gender": "M",
-      "services": "Musculação",
+      "services": "Musculação, Judô",
       "created_at": 1590113015644
     }
   ]
-}    
+}
