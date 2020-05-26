@@ -1,6 +1,6 @@
 const fs = require('fs');
 const data = require('../data.json');
-const { age, date } = require('../utils')
+const { date } = require('../utils')
 
 
 exports.index = function(req, res) {
@@ -14,14 +14,13 @@ exports.show = function(req, res) {
        return member.id == id;
     });
         if(!foundMember)
-            return res.send("Instructor not found!")
+            return res.send("Member not found!")
 
         const member = {
             ...foundMember,
-            age: age(foundMember.birth),
+            birth: date(foundMember.birth).birthDay,
             gender: foundMember.gender,
-            services: foundMember.services.split(","),
-            created_at: new Intl.DateTimeFormat("pt-br").format(foundMember.created_at)
+            blood: foundMember.blood,
 
         }
             return res.render("members/show", { member })
@@ -40,18 +39,9 @@ exports.post = function(req, res) {
         }
     }
     
-    let {
-         avatar_url,
-         name, 
-         email,
-         birth, 
-         gender, 
-         blood,
-         weight,
-         height,
-        } = req.body;
+    
 
-    birth = Date.parse(birth);
+    birth = Date.parse(req.body.birth);
 
     let id = 1;
     const lastMember = data.members[data.members.length - 1];
@@ -60,15 +50,9 @@ exports.post = function(req, res) {
         }
 
     data.members.push({
+        ...req.body,
         id,
-        avatar_url,
-        name,
-        email,
         birth,
-        gender,
-        blood,
-        weight,
-        height,
     });
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
@@ -86,11 +70,11 @@ exports.edit = function(req, res) {
        return member.id == id;
     });
         if(!foundMember)
-            return res.send("Instructor not found!")
+            return res.send("Member not found!")
     
             const member = {
                 ...foundMember,
-                birth: date(foundMember.birth)
+                birth: date(foundMember.birth).iso
             }
 
             return res.render("members/edit", { member })

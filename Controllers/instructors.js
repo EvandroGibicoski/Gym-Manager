@@ -7,6 +7,10 @@ exports.index = function(req, res) {
     return res.render("instructors/index", { instructors: data.instructors })
 }
 
+exports.create = function(req, res) {
+    return res.render('instructors/create');
+}
+
 exports.show = function(req, res) {
     const { id } = req.params;
     
@@ -26,9 +30,6 @@ exports.show = function(req, res) {
         }
             return res.render("instructors/show", { instructor })
     
-}
-exports.create = function(req, res) {
-    return res.render('instructors/create');
 }
 
 exports.post = function(req, res) {
@@ -76,7 +77,7 @@ exports.edit = function(req, res) {
     
             const instructor = {
                 ...foundInstructor,
-                birth: date(foundInstructor.birth)
+                birth: date(foundInstructor.birth).iso
             }
 
             return res.render("instructors/edit", { instructor })
