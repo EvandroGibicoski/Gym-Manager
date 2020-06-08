@@ -15,6 +15,8 @@
  * [Nodemon](https://nodemon.io/)
  * [Nunjucks](https://mozilla.github.io/nunjucks/templating.html)
  * [Method-Override](https://www.npmjs.com/package/method-override)
+ * [Npm-Run-All](https://www.npmjs.com/package/npm-run-all)
+ * [Browser-Sync](https://www.browsersync.io/)
  * [JavaScript](https://www.javascript.com/)
  * [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
  * [CSS3](https://developer.mozilla.org/en-US/docs/Archive/CSS3)
