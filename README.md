@@ -5,7 +5,17 @@
    GYM MANAGER APPLICATION
  </h1></n>
  
-  # Sobre o Projeto:
-  #### Este Projeto está sendo construindo no Bootcamp [launchBase](https://rocketseat.com.br/launchbase) da [Rocketseat](https://rocketseat.com.br/), ministrado pelo Instrutor [Mayk Brito]().
+ # Sobre o Projeto:
+  #### Este Projeto está sendo construindo no Bootcamp [launchBase](https://rocketseat.com.br/launchbase) da [Rocketseat](https://rocketseat.com.br/), ministrado pelo Instrutor [Mayk Brito](https://github.com/maykbrito).
   
-  # Tecnologias usadas no Projeto:
+ # Tecnologias usadas no Projeto:
+ * [NodeJS](https://nodejs.org/en/docs/)
+ * [Npm](https://www.npmjs.com/get-npm)
+ * [ExpressJS](https://expressjs.com/)
+ * [Nodemon](https://nodemon.io/)
+ * [Nunjucks](https://mozilla.github.io/nunjucks/templating.html)
+ * [Method-Override](https://www.npmjs.com/package/method-override)
+ * [JavaScript](https://www.javascript.com/)
+ * [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+ * [CSS3](https://developer.mozilla.org/en-US/docs/Archive/CSS3)
+ 
