@@ -5,7 +5,13 @@
    GYM MANAGER APPLICATION
  </h1></n>
  
- # Sobre o Projeto:
+ # Nome do Projeto:
+ ## Gym Manager
+ 
+ # Sobre a Funcionalidade do Projeto:
+ ### Este Projeto é para gerenciamento de academias, onde serão feitas as incrições dos professores e alunos, sendo que cada professor ou aluno poderá especificar a sua modalidade, o que gostaria de fazer dentro da academia: musculação, ginástica, judô, pilates,dentre outras atividades, assim cada aluno será direcionado para o professor específico.
+ 
+ # Sobre o Desenvolvimento do Projeto:
   #### Este Projeto está sendo construindo no Bootcamp [launchBase](https://rocketseat.com.br/launchbase) da [Rocketseat](https://rocketseat.com.br/), ministrado pelo Instrutor [Mayk Brito](https://github.com/maykbrito).
   
  # Tecnologias usadas no Projeto:
