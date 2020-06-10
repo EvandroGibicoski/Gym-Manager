@@ -35,7 +35,7 @@ exports.post = function(req, res) {
 
     for(key of keys) {
         if(req.body[key] == "") {
-            return res.send("please, fill the fields!")
+            return res.send("Please, fill the fields!")
         }
     }
     
