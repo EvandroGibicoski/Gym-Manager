@@ -9,18 +9,20 @@ const server = express();
 
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static('public'));
-server.use(express.static('assets'));
 server.use(methodOverride('_method'));
 server.use(routes);
 
 server.set("view engine", "njk");
 
-nunjucks.configure("views", {
+nunjucks.configure("src/app/views", {
     express:server, 
     autoescape: false,
     noCache: true
 });
 
 server.listen(3000, function(req, res) {
-    console.log("server is running");
+    console.log({
+        "Name": "Server",
+        "Situation": "Running"
+    });
 })
