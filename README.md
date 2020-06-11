@@ -1,5 +1,5 @@
 <h1 align="center">
-   <img alt="gym-manager-template" src="https://github.com/gibifyOfficial/GymManager/blob/master/assets/gym-manager.template.png"  width="1000px" height="400"/>
+   <img alt="gym-manager-template" src="https://github.com/gibifyOfficial/GymManager/blob/master/public/assets/gym-manager.template.png"  width="1000px" height="400"/>
  </h1></n>
  <h1 align="center">
    GYM MANAGER APPLICATION
