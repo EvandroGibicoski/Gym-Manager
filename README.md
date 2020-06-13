@@ -1,5 +1,5 @@
 <h1 align="center">
-   <img alt="gym-manager-template" src="https://github.com/gibifyOfficial/GymManager/blob/master/assets/gym-manager.template.png"  width="1000px" height="400"/>
+   <img alt="gym-manager-template" src="https://github.com/gibifyOfficial/GymManager/blob/master/public/assets/gym-manager.template.png"  width="1000px" height="400"/>
  </h1></n>
  <h1 align="center">
    GYM MANAGER APPLICATION
@@ -26,4 +26,7 @@
  * [JavaScript](https://www.javascript.com/)
  * [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
  * [CSS3](https://developer.mozilla.org/en-US/docs/Archive/CSS3)
+ 
+ # LICENSE
+ ## [MIT](https://github.com/gibifyOfficial/GymManager/blob/master/LICENSE)
  
