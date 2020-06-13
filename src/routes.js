@@ -1,23 +1,17 @@
 const express =  require('express');
 const routes = express.Router();
 const instructors = require('./app/Controllers/instructors');
-const members = require('./app/Controllers/member')
+const members = require('./app/Controllers/members');
 
-routes.get("/", function(req, res) {
-    return res.redirect("/instructors");
-});
-
-// routes from instructors
-routes.get("/instructors", instructors.index)
+routes.get("/instructors", instructors.index);
 routes.get("/instructors/create", instructors.create);
 routes.get("/instructors/:id", instructors.show);
 routes.get("/instructors/:id/edit", instructors.edit);
 routes.post("/instructors", instructors.post);
 routes.put("/instructors", instructors.put);
-routes.delete("/instructors", instructors.delete)
+routes.delete("/instructors", instructors.delete);
 
-// routes from members
-routes.get("/members", members.index)
+routes.get("/members", members.index);
 routes.get("/members/create", members.create);
 routes.get("/members/:id", members.show);
 routes.get("/members/:id/edit", members.edit);

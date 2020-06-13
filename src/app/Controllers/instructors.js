@@ -1,30 +1,15 @@
 const { age, date } = require('../../lib/utils');
+const db = require('../../config/db');
 
 module.expots = {
     index(req, res) {
-        return res.render("instructors/index", { instructors: data.instructors });
+        return 
     },
     create(req, res) {
-        return res.render('instructors/create');
+        return 
     },
     show(req, res) {
-        const { id } = req.params;
-
-        const foundInstructor = data.instructors.find(function (instructor) {
-            return instructor.id == id;
-        });
-        if (!foundInstructor)
-            return res.send("Instructor not found!");
-
-        const instructor = {
-            ...foundInstructor,
-            age: age(foundInstructor.birth),
-            gender: foundInstructor.gender,
-            services: foundInstructor.services.split(","),
-            created_at: new Intl.DateTimeFormat("pt-br").format(foundInstructor.created_at)
-
-        };
-        return res.render("instructors/show", { instructor });
+        return 
     },
     post(req, res) {
         const keys = Object.keys(req.body);
@@ -35,86 +20,43 @@ module.expots = {
             };
         };
 
-        let { avatar_url, name, birth, gender, services } = req.body;
+        const query = `
+                INSERT INTO instructors (
+                    avatar_url,
+                    name,
+                    birth,
+                    gender,
+                    services,
+                    created_at
+                ) VALUES ($1, $2, $3, $4, $5, $6, )
+                RETURNING id
+        `
 
-        const created_at = Date.now();
-        const id = Number(data.instructors.length + 1);
+        const value = [
+            req.body.avatar_url,
+            req.body.name,
+            req.body.gender,
+            data(req.body.birth).iso,
+            req.body.services,
+            data(Date.now()).iso
+        ]
 
-        birth = Date.parse(birth);
-
-        data.instructors.push({
-            id,
-            avatar_url,
-            name,
-            birth,
-            gender,
-            services,
-            created_at
-        });
-
-        fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
-            if (err)
-                return res.send("write file error!");
-            return res.redirect("/instructors");
+        db.query(query, values, function(err, results) {
+            if(err) 
+            return res.send("Data Error!");
+            console.log(err);
+            return res.redirect(`/instructors/${results.rows[0].id}`);
+            console.log(results);
         });
     },
     edit(req, res) {
-        const { id } = req.params;
-
-        const foundInstructor = data.instructors.find(function (instructor) {
-            return instructor.id == id;
-        });
-            if (!foundInstructor)
-            return res.send("Instructor not found!");
-
-        const instructor = {
-            ...foundInstructor,
-            birth: date(foundInstructor.birth).iso
-        };
-
-        return res.render("instructors/edit", { instructor })
+        return 
     },
     put(req, res) {
-            const { id } = req.body;
-        let index = 0;
-
-        const foundInstructor = data.instructors.find(function (instructor, foundIndex) {
-            if (id == instructor.id) {
-                index = foundIndex;
-                return true
-            };
-        });
-        if (!foundInstructor)
-            return res.send("Instructor not found!")
-
-        const instructor = {
-            ...foundInstructor,
-            ...req.body,
-            birth: Date.parse(req.body.birth),
-            id: Number(req.body.id),
-        }
-
-        data.instructors[index] = instructor;
-
-        fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
-            if (err) return res.send("Write file Error");
-
-            return res.redirect(`/instructors/${id}`)
-        });
+         return
     },
     delete (req, res) {
-        const { id } = req.body;
-
-        const filteredInstructors = data.instructors.filter(function (instructor) {
-            return instructor.id != id
-        })
-    
-        data.instructors = filteredInstructors
-    
-        fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
-            if (err)
-                return res.send("Write file error!")
-            return res.redirect("/instructors")
-        })
+            return 
+        
     },  
 };
