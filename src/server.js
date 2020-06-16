@@ -1,11 +1,9 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
 const methodOverride = require('method-override');
-
 const routes = require('./routes');
+
 const server = express();
-
-
 
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static('public'));
@@ -20,9 +18,6 @@ nunjucks.configure("src/app/views", {
     noCache: true
 });
 
-server.listen(3000, function(req, res) {
-    console.log({
-        "Name": "Server",
-        "Situation": "Running"
-    });
-})
+server.listen(3000, function() {
+    console.log("Server is Running");
+});
