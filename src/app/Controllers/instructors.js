@@ -27,6 +27,17 @@ module.exports = {
         });
 
     },
+    edit(req, res) {
+        Instructor.find(req.params.id, function(instructor) {
+            if(!instructor)
+            return res.send("Instructor not found!");
+            
+            instructor.birth = date(instructor.birth).iso
+
+            return res.render("instructors/edit", { instructor });
+
+        });
+    },
     post(req, res) {
         const keys = Object.keys(req.body);
 
@@ -38,17 +49,6 @@ module.exports = {
 
         Instructor.create(req.body, function(instructor) {
         return res.redirect(`/instructors/${instructor.id}`);
-
-        });
-    },
-    edit(req, res) {
-        Instructor.find(req.params.id, function(instructor) {
-            if(!instructor)
-            return res.send("Instructor not found!");
-            
-            instructor.birth = date(instructor.birth).iso
-
-            return res.render("instructors/edit", { instructor });
 
         });
     },

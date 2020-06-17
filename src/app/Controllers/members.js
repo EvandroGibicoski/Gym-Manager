@@ -26,6 +26,17 @@ module.exports = {
         });
 
     },
+    edit(req, res) {
+        Member.find(req.params.id, function(member) {
+            if(!member)
+            return res.send("Member not found!");
+            
+            member.birth = date(member.birth).iso
+
+            return res.render("members/edit", { member });
+
+        });
+    },
     post(req, res) {
         const keys = Object.keys(req.body);
 
@@ -37,17 +48,6 @@ module.exports = {
 
         Member.create(req.body, function(member) {
         return res.redirect(`/members/${member.id}`);
-
-        });
-    },
-    edit(req, res) {
-        Member.find(req.params.id, function(member) {
-            if(!member)
-            return res.send("Member not found!");
-            
-            member.birth = date(member.birth).iso
-
-            return res.render("members/edit", { member });
 
         });
     },
