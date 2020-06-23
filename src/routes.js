@@ -3,6 +3,9 @@ const routes = express.Router();
 const instructors = require('./app/Controllers/instructors');
 const members = require('./app/Controllers/members');
 
+routes.get("/", function(req, res) {
+    return res.redirect("/instructors");
+});
 routes.get("/instructors", instructors.index);
 routes.get("/instructors/create", instructors.create);
 routes.get("/instructors/:id", instructors.show);

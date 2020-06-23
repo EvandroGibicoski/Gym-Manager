@@ -1,18 +1,33 @@
 {% extends "layout.njk" %}
 
 {% block head %}
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="../../styles/style.css">
 {% endblock head %} 
 
 
 {% block content %}
 <div class="card table-container">
-    <a href="/instructors/create">Novo Instrutor</a>
+
+    <div class="header">
+        <a class="button" href="/instructors/create">Novo</a>
+        <form action="/instructors" method="GET">
+            <input 
+                type="text"
+                name="filter"
+                placeholder="Nome ou Atendimento"
+                value={{filter}}
+            >
+            <button type="submit">Filtrar</button>
+            </form>
+        
+    </div>
+
    <table width="100%">
         <thead>
             <tr>
                 <th>Instructor</th>
                 <th>Atendimento</th>
+                <th>Alunos</th>
                 <th>Ação</th>
 
             </tr>
@@ -21,9 +36,10 @@
            {% for instructor in instructors %}
                 <tr>
                     <td>
-                    <span style="background-image: url({{instructor.avatar_url}})"></span>
+                    <span style="background: url({{instructor.avatar_url}})"></span>
                     {{instructor.name}}</td>
                     <td id="services">{{instructor.services}}</td>
+                    <td id="services">{{instructor.total_students}}</td>
                     <td><a href="http:/instructors/{{instructor.id}}">Ver</a></td>
                 </tr>
             {% endfor %}

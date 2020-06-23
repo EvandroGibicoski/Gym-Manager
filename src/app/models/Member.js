@@ -4,14 +4,16 @@ const { date } = require('../../lib/utils');
 module.exports = {
     all(callback) {
         db.query(
-            `SELECT * 
-            FROM  members`, function(err, results) {
+            `   SELECT * 
+                FROM  members
+                ORDER BY name ASC
+            `, function(err, results) {
                 if(err) 
                 throw `Database Error! ${err}`;
 
                 callback(results.rows);
-        }
-    );
+            }
+        );
     },
     create(data, callback) {
         const query = `
@@ -23,20 +25,22 @@ module.exports = {
                 gender,
                 blood,
                 weight,
-                height
-            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+                height, 
+                instructor_id
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
             RETURNING id
         `
 
-        const value = [
+        const values = [
             data.avatar_url,
             data.name,
             data.email,
-            data(data.birth).iso,
+            date(data.birth).iso,
             data.gender,
             data.blood,
             data.weight,
             data.height,
+            data.instructor,
         ]
 
         db.query(query, values, function(err, results) {
@@ -51,9 +55,10 @@ module.exports = {
     find(id, callback) {
         db.query (
             `
-            SELECT *
-            FROM member
-            WHERE id = ${id}
+            SELECT members.*, instructors.name AS instructor_name
+            FROM members
+            LEFT JOIN instructors ON (members.instructor_id = instructors.id)
+            WHERE members.id = ${id}
             `, function(err, results) {
                 if(err) 
                 throw `Database Error! ${err}`;
@@ -74,18 +79,20 @@ module.exports = {
             gender=($5),
             blood=($6),
             weight=($7),
-            height=($8)
-        WHERE id = $9
+            height=($8),
+            instructor_id=($9)
+        WHERE id = $10
         `
         const value = [
             data.avatar_url,
             data.name,
             data.email,
-            data(data.birth).iso,
+            date(data.birth).iso,
             data.gender,
             data.blood,
             data.weight,
             data.height,
+            data.instructor,
             data.id
         ]
 
@@ -111,5 +118,11 @@ module.exports = {
 
         callback();
     },
+    instructorsSelectOptions(callback) {
+        db.query(`SELECT id, name FROM instructors`, function(err, results) {
+            if(err) throw `Database Erro! ${err}`
 
+            callback(results.rows);
+        });
+    },
 };

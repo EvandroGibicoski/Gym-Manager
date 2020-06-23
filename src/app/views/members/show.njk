@@ -1,7 +1,7 @@
 {% extends "layout.njk" %}
 
 {% block head %}
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="../../styles/style.css">
 {% endblock head %} 
 
 
@@ -43,6 +43,10 @@
     <div class="item">
         <div>Altura (cm)</div>
         <div>{{member.height}}</div>
+    </div>
+    <div class="item">
+        <div>Aluno de</div>
+        <div>{{member.instructor_name}}</div>
     </div>
 
     <a href="/members/{{ member.id }}/edit" class="button">Editar</a>

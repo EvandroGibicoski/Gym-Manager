@@ -5,15 +5,16 @@ module.exports = {
     all(callback) {
         db.query(
             `
-                SELECT * 
+                SELECT instructors.*, count(members) AS total_students
                 FROM  instructors
-                ORDER BY name ASC
+                LEFT JOIN members ON (instructors.id = members.instructor_id)
+                GROUP BY instructors.id
             `, function(err, results) {
                 if(err) 
                 throw `Database Error! ${err}`;
 
                 callback(results.rows);
-        }
+        },
     );
     },
     create(data, callback) {
@@ -21,21 +22,21 @@ module.exports = {
                 INSERT INTO instructors (
                     avatar_url,
                     name,
-                    gender,
                     birth,
+                    gender,
                     services,
                     created_at
-                ) VALUES ($1, $2, $3, $4, $5, $6, )
+                ) VALUES ($1, $2, $3, $4, $5, $6)
                 RETURNING id
         `
 
-        const value = [
+        const values = [
             data.avatar_url,
             data.name,
+            date(data.birth).iso,
             data.gender,
-            data(data.birth).iso,
             data.services,
-            data(Date.now()).iso
+            date(Date.now()).iso
         ]
 
         db.query(query, values, function(err, results) {
@@ -43,7 +44,7 @@ module.exports = {
             throw `Database Error! ${err}`;
 
             callback (results.rows[0]);   
-        }
+        },
     ); 
             
     },
@@ -51,7 +52,7 @@ module.exports = {
         db.query (
             `
             SELECT *
-            FROM instructor
+            FROM instructors
             WHERE id = ${id}
             `, function(err, results) {
                 if(err) 
@@ -59,6 +60,23 @@ module.exports = {
 
                 callback(results.rows[0]);
             }
+        );
+    },
+    findBy(filter, callback) {
+        db.query(
+            `
+                SELECT instructors.*, count(members) AS total_students
+                FROM  instructors
+                LEFT JOIN members ON (instructors.id = members.instructor_id)
+                WHERE instructors.name ILIKE '%${filter}%'
+                OR  instructors.services ILIKE '%${filter}%'
+                GROUP BY instructors.id
+            `, function(err, results) {
+                if(err) 
+                throw `Database Error! ${err}`;
+
+                callback(results.rows);
+            },
         );
     },
     update(data, callback) {
@@ -73,16 +91,16 @@ module.exports = {
             services=($5),
         WHERE id = $6
         `
-        const value = [
+        const values = [
             data.avatar_url,
             data.name,
-            data(data.birth).iso,
+            date(data.birth).iso,
             data.gender,
             data.services,
             data.id
         ]
 
-        db.query(query, value, 
+        db.query(query, values, 
             function(err, results) {
                 if(err)
                 throw `Database Error! ${err}`;

@@ -11,7 +11,7 @@
     </div>
 
     <div class="item">
-        <div>Instrutor</div>
+        <div>Nome</div>
             <div>
                 <input 
                     type="text"
@@ -40,8 +40,7 @@
                 <input 
                 type="radio" 
                 name="gender" 
-                value="M" 
-                {% if instructor.gender == 'M' %}
+                value="F" {% if instructor.gender == 'M' %}
                 checked
                 {% endif %}> Masculino
             </span>
@@ -49,8 +48,7 @@
                 <input 
                     type="radio" 
                     name="gender" 
-                    value="F" 
-                    {% if instructor.gender == 'F' %}
+                    value="F" {% if instructor.gender == 'F' %}
                 checked
                 {% endif %}> Feminino
             </span>
@@ -63,8 +61,8 @@
                 <input 
                     type="text"
                     name="services"
+                    value="{{instructor.services}}"
                     placeholder="Digite a sua áera de atuação"
-                    value="{{ instructor.services }}"
                 >
             </div>
     </div>
