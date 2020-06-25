@@ -21,7 +21,7 @@ module.exports = {
                     page
                 };
 
-                return res.render("instructors/index", { instructors, filter });
+                return res.render("instructors/index", { instructors, pagination, filter });
             }
         };
 
