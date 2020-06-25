@@ -25,7 +25,7 @@
    <table width="100%">
         <thead>
             <tr>
-                <th>Instructor</th>
+                <th>Instrutor</th>
                 <th>Atendimento</th>
                 <th>Alunos</th>
                 <th>Ação</th>
@@ -45,5 +45,15 @@
             {% endfor %}
         </tbody>
    </table>
+   
+    <div    class="pagination"
+            data-page={{pagination.page}}
+            data-total={{pagination.total}}
+            data-filter={{pagination.filter}}
+    ></div>
+
 </div>
+
 {% endblock content %}
+
+
